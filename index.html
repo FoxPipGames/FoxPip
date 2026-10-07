@@ -1,76 +1,164 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>개인정보처리방침</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FoxPip Games는 쉽고 즐겁게 플레이할 수 있는 캐주얼 게임을 만드는 게임 개발 스튜디오입니다.">
+  <meta name="theme-color" content="#a44324">
+  <title>FoxPip Games | 게임 개발 스튜디오</title>
+  <style>
+    :root { --bg:#fffaf3; --ink:#382721; --muted:#755c50; --accent:#a44324; --line:#ebdcd0; --orange:#e88346; --cream:#fff2de; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:24px; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif; line-height:1.75; word-break:keep-all; overflow-wrap:anywhere; }
+    a { color:inherit; text-underline-offset:5px; }
+    a:focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
+    .wrap { max-width:1040px; margin:auto; padding:0 28px; }
+    header { border-top:4px solid var(--orange); border-bottom:1px solid var(--line); background:#fffdf9; }
+    .header-inner { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:23px 0; }
+    .brand { display:inline-flex; align-items:center; gap:10px; font-size:21px; font-weight:800; letter-spacing:-.6px; text-decoration:none; }
+    .brand .accent { color:var(--accent); }
+    .fox-icon { width:34px; height:34px; flex:none; }
+    nav { display:flex; flex-wrap:wrap; gap:24px; font-size:14px; }
+    nav a { text-decoration:none; }
+    nav a:hover { color:var(--accent); text-decoration:underline; }
+    .hero { display:grid; grid-template-columns:1.5fr 1fr; gap:48px; align-items:center; padding:86px 0 78px; }
+    .eyebrow { margin:0 0 16px; color:var(--accent); font-size:12px; font-weight:750; letter-spacing:2px; }
+    h1 { font-size:clamp(34px,5vw,54px); line-height:1.25; letter-spacing:-2px; margin:0 0 22px; }
+    .lead { margin:0; max-width:470px; color:var(--muted); font-size:17px; }
+    .button { display:inline-block; margin-top:28px; padding:11px 22px; border-radius:8px; background:var(--accent); color:white; text-decoration:none; font-size:14px; font-weight:700; box-shadow:0 5px 14px #a443241a; }
+    .button:hover { background:#85331b; }
+    .art { min-height:245px; background:linear-gradient(135deg,#ffecd4,#f7d7bd); border:1px solid #f0d4bb; border-radius:28px; position:relative; display:grid; place-items:center; overflow:hidden; }
+    .art::before { content:""; position:absolute; width:220px; height:220px; border-radius:50%; background:#ee9b64; right:-45px; top:-75px; }
+    .art::after { content:""; position:absolute; width:140px; height:140px; border-radius:50%; background:var(--cream); left:-30px; bottom:-70px; }
+    .art-label { position:relative; z-index:1; text-align:center; }
+    .art-label strong { display:block; font-size:62px; line-height:1; letter-spacing:-5px; color:var(--accent); }
+    .art-label span { display:block; margin-top:15px; color:var(--muted); font-size:12px; letter-spacing:4px; }
+    section { padding:48px 0; border-top:1px solid var(--line); }
+    .section-heading { margin-bottom:24px; }
+    .section-heading h2 { font-size:25px; letter-spacing:-.7px; margin:0 0 6px; }
+    .section-heading p { margin:0; color:var(--muted); }
+    .about-text { max-width:750px; margin:0; }
+    .game-card { padding:26px; border:1px solid var(--line); border-radius:16px; background:#fffdf9; display:flex; align-items:center; gap:24px; }
+    .game-icon { flex:none; width:94px; height:94px; border-radius:22px; display:grid; place-items:center; background:linear-gradient(145deg,#ffe5c1,#f6b782); color:#883717; font-size:38px; font-weight:850; }
+    .game-card h3 { margin:0 0 5px; font-size:21px; }
+    .game-card p { margin:0; color:var(--muted); }
+    .badge { display:inline-block; margin-top:12px; padding:3px 10px; background:#ffeddb; color:var(--accent); border-radius:5px; font-size:12px; font-weight:600; }
+    .contact { padding:26px; background:#fff0e0; border:1px solid #f0dbc6; border-radius:16px; }
+    .contact p { margin:0 0 8px; }
+    .contact p:last-child { margin-bottom:0; }
+    .email { font-weight:750; }
+    dl { display:grid; grid-template-columns:150px 1fr; gap:10px 24px; margin:0; font-size:14px; }
+    dt { color:var(--muted); }
+    dd { margin:0; }
+    footer { padding:26px 0 36px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    .footer-inner { display:flex; flex-wrap:wrap; justify-content:space-between; gap:15px; }
+    .legal { display:flex; flex-wrap:wrap; gap:20px; }
+    @media(max-width:680px) {
+      .wrap { padding:0 22px; }
+      .header-inner { align-items:flex-start; flex-direction:column; gap:10px; }
+      nav { gap:22px; }
+      .hero { grid-template-columns:1fr; padding:48px 0; gap:30px; }
+      .art { min-height:170px; }
+      .art-label strong { font-size:48px; }
+      section { padding:34px 0; }
+      .game-card { align-items:flex-start; gap:16px; padding:20px; }
+      .game-icon { width:64px; height:64px; font-size:28px; border-radius:16px; }
+      dl { grid-template-columns:100px 1fr; gap:10px 16px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
 </head>
-
 <body>
-
-<h1>개인정보처리방침</h1>
-
-<p>WaterFox는 사용자의 개인정보 보호를 중요하게 생각합니다.</p>
-
-<h2>1. 수집하는 정보</h2>
-
-<p>
-본 애플리케이션은 개발자가 직접 사용자의 이름, 이메일,
-전화번호 등의 개인정보를 수집하지 않습니다.
-</p>
-
-<p>
-다만 광고 제공을 위해 Google AdMob 등의 제3자 서비스를 사용할 수 있으며,
-해당 서비스에서 기기 정보, 광고 식별자 및 앱 사용 관련 정보가
-수집될 수 있습니다.
-</p>
-
-<h2>2. 개인정보 이용 목적</h2>
-
-<p>
-수집되는 정보는 광고 제공, 광고 성과 측정,
-서비스 개선 등을 위해 사용될 수 있습니다.
-</p>
-
-<h2>3. 제3자 서비스</h2>
-
-<p>
-본 애플리케이션은 Google AdMob을 사용할 수 있습니다.
-Google의 개인정보 처리에 대한 자세한 내용은
-Google 개인정보처리방침을 참고해 주세요.
-</p>
-
-<p>
-<a href="https://policies.google.com/privacy">
-Google 개인정보처리방침
-</a>
-</p>
-
-<h2>4. 아동의 개인정보</h2>
-
-<p>
-본 애플리케이션은 관련 법령 및 플랫폼 정책에 따라
-아동의 개인정보 보호를 준수합니다.
-</p>
-
-<h2>5. 개인정보처리방침 변경</h2>
-
-<p>
-본 개인정보처리방침은 서비스 또는 관련 정책 변경에 따라
-수정될 수 있습니다.
-</p>
-
-<h2>6. 문의</h2>
-
-<p>
-개인정보 관련 문의는 아래 이메일로 연락해 주세요.
-</p>
-
-<p>
-이메일: your-email@example.com
-</p>
-
-<p>시행일: 2026년 9월 18일</p>
-
+  <!-- 회사명, 소개, 게임 정보는 실제 운영 내용에 맞게 수정하세요. -->
+  <header>
+    <div class="wrap">
+      <div class="header-inner">
+        <a class="brand" href="#home">
+          <svg class="fox-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path fill="#c9572e" d="M8 6 25 18h14L56 6l-2 28-22 24L10 34Z"/>
+            <path fill="#63382c" d="m13 14 3 17 9-11Zm38 0-12 6 9 11Z"/>
+            <path fill="#e88346" d="m16 27 16-9 16 9-4 17-12 12-12-12Z"/>
+            <path fill="#fff2de" d="M10 32c11-3 18 4 22 16 4-12 11-19 22-16L32 58Z"/>
+            <path fill="#382721" d="m19 32 7 3-2 3-5-3Zm26 0-7 3 2 3 5-3ZM27 48h10l-5 7Z"/>
+          </svg>
+          <span>FoxPip <span class="accent">Games</span></span>
+        </a>
+        <nav aria-label="주요 메뉴">
+          <a href="#about">회사 소개</a>
+          <a href="#games">게임</a>
+          <a href="#contact">문의</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main class="wrap" id="home">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">INDEPENDENT GAME STUDIO</p>
+        <h1>작은 아이디어로,<br>즐거운 플레이를.</h1>
+        <p class="lead">FoxPip Games는 누구나 쉽게 시작하고 즐길 수 있는 캐주얼 게임을 만드는 게임 개발 스튜디오입니다.</p>
+        <a class="button" href="#games">개발 게임 살펴보기</a>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="art-label"><strong>FP.</strong><span>PLAY SOMETHING FUN</span></div>
+      </div>
+    </div>
+    <section id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <h2 id="about-title">회사 소개</h2>
+        <p>간단한 조작, 명확한 규칙, 오래 기억되는 재미.</p>
+      </div>
+      <p class="about-text">FoxPip Games는 모바일 캐주얼 게임을 개발합니다. 짧은 시간에도 즐겁게 플레이할 수 있는 게임을 목표로, 핵심 재미에 집중하고 이용자의 의견을 바탕으로 플레이 경험을 개선합니다.</p>
+    </section>
+    <section id="games" aria-labelledby="games-title">
+      <div class="section-heading">
+        <h2 id="games-title">개발 게임</h2>
+        <p>FoxPip Games가 만드는 게임을 소개합니다.</p>
+      </div>
+      <!-- 출시 상태와 플랫폼을 수정하고, 출시 후 실제 스토어 링크를 추가하세요. -->
+      <article class="game-card">
+        <div class="game-icon" aria-hidden="true">16</div>
+        <div>
+          <h3>NumberPang</h3>
+          <p>같은 숫자의 구슬을 합쳐 더 큰 숫자를 만드는 캐주얼 퍼즐 게임. 구슬을 발사하고 연쇄 합성의 재미를 즐겨 보세요.</p>
+          <span class="badge">Android · 개발 중</span>
+        </div>
+      </article>
+    </section>
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-heading">
+        <h2 id="contact-title">문의</h2>
+        <p>게임 이용 문의 및 비즈니스 제안을 받습니다.</p>
+      </div>
+      <div class="contact">
+        <p>문의 이메일: <span class="email">[실제 문의 이메일 입력]</span></p>
+        <!-- 이메일 입력 후 위 span을 <a class="email" href="mailto:실제이메일">실제이메일</a>로 바꾸면 메일 앱이 열립니다. -->
+        <p>게임 이용 문의 시 게임 이름, 기기 모델, 발생 상황을 함께 보내주시면 확인에 도움이 됩니다.</p>
+      </div>
+    </section>
+    <section aria-labelledby="company-title">
+      <div class="section-heading"><h2 id="company-title">사업자 정보</h2></div>
+      <!-- 대괄호 항목은 실제 사업자 정보로 교체하세요. 브랜드와 등록 상호가 다르면 각각 표시합니다. -->
+      <dl>
+        <dt>브랜드</dt><dd>FoxPip Games</dd>
+        <dt>상호</dt><dd>[사업자등록증에 기재된 상호]</dd>
+        <dt>대표자</dt><dd>[대표자명]</dd>
+        <dt>사업자등록번호</dt><dd>[사업자등록번호]</dd>
+        <dt>사업장 소재지</dt><dd>[공개할 사업장 주소]</dd>
+        <dt>이메일</dt><dd>[실제 문의 이메일 입력]</dd>
+      </dl>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© 2026 FoxPip Games. All rights reserved.</span>
+      <!-- 기존 개인정보처리방침과 이용약관 파일의 실제 경로로 변경하세요. -->
+      <div class="legal">
+        <a href="./privacy-ko.html">개인정보처리방침</a>
+        <a href="./terms-ko.html">이용약관</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
